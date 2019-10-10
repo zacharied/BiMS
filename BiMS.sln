@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiMS", "BiMS\BiMS.csproj", "{A706B5F9-7402-46BB-B8A8-C5EF01988496}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "music-theori", "music-theori\music-theori\music-theori.csproj", "{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bims-launcher", "bims-launcher\bims-launcher.csproj", "{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Deploy|Any CPU = Deploy|Any CPU
+		Deploy|x64 = Deploy|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Debug|x64.Build.0 = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Deploy|x64.ActiveCfg = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Deploy|x64.Build.0 = Debug|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Release|x64.ActiveCfg = Release|Any CPU
+		{A706B5F9-7402-46BB-B8A8-C5EF01988496}.Release|x64.Build.0 = Release|Any CPU
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Debug|x64.ActiveCfg = Debug|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Debug|x64.Build.0 = Debug|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Deploy|Any CPU.ActiveCfg = Deploy|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Deploy|x64.ActiveCfg = Deploy|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Deploy|x64.Build.0 = Deploy|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Release|Any CPU.ActiveCfg = Release|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Release|x64.ActiveCfg = Release|x64
+		{AEAA8AE7-E1F7-436C-A9D8-32C32D777665}.Release|x64.Build.0 = Release|x64
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Debug|x64.Build.0 = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Deploy|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Deploy|Any CPU.Build.0 = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Deploy|x64.ActiveCfg = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Deploy|x64.Build.0 = Debug|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Release|x64.ActiveCfg = Release|Any CPU
+		{1BEB1407-320E-4BB1-8E3C-46AB38CF8C57}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0972C45D-8609-41DB-90D2-5FDF4F64243A}
+	EndGlobalSection
+EndGlobal

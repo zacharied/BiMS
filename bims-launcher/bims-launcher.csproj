@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>bims_launcher</RootNamespace>
+    <StartupObject>BimsLauncher.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BiMS\BiMS.csproj" />
+    <ProjectReference Include="..\music-theori\music-theori\music-theori.csproj" />
+  </ItemGroup>
+
+</Project>
