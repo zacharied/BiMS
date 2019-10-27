@@ -25,12 +25,13 @@ namespace BiMS.Charting
         {
             var chart = Instance.CreateNew();
 
-            var e = new NoteEntity
+            for (int i = 1; i < 16; i++)
             {
-                Position = 3,
-                Lane = 0
-            };
-            chart[0].Add(e);
+                chart[0].Add(new NoteEntity { Position = i });
+                chart[1].Add(new NoteEntity { Position = i });
+                chart[7].Add(new NoteEntity { Position = i + 0.5 });
+                chart[4].Add(new NoteEntity { Position = i + 0.75 });
+            }
 
             return chart;
         }
