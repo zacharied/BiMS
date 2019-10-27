@@ -6,6 +6,7 @@ using theori.Charting;
 using theori.Charting.Playback;
 using theori.Graphics;
 using BiMS;
+using BiMS.IO;
 
 namespace TheoriExtensions
 {
@@ -58,15 +59,17 @@ namespace BiMS.Gameplay
         private const float LANE_SEPARATOR_WIDTH = 2;
         private const float LANES_HEIGHT = 480;
         private const float NOTE_HEIGHT = 10;
-        private readonly (float, float, float) NOTE_COLOR_SCRATCH = (200, 0, 0);
+        private readonly (float, float, float) NOTE_COLOR_SCRATCH = (160, 0, 0);
         private readonly (float, float, float) NOTE_COLOR_SMALL = (0, 0, 200);
         private readonly (float, float, float) NOTE_COLOR_LARGE = (175, 170, 180);
         private readonly (float, float, float) BACKGROUND_COLOR_SCRATCH = (10, 10, 10);
         private readonly (float, float, float) BACKGROUND_COLOR_SMALL = (10, 10, 10);
         private readonly (float, float, float) BACKGROUND_COLOR_LARGE = (30, 30, 30);
-
+        private readonly (float, float, float) CRITICAL_LINE_COLOR = (210, 20, 20);
 
         private readonly Lane[] lanes;
+
+        private bool[] LaneInputStatus = new bool[BimsUtil.NUM_LANES];
 
         public Dictionary<LaneLabel, List<NoteEntity>> renderableEntities;
 
@@ -115,6 +118,8 @@ namespace BiMS.Gameplay
             }
 
             highwayScreenMask = new Rect(xPos, yPos, Width, Height);
+
+            LaneInputStatus.Fill(false);
         }
 
         public float Width
@@ -127,6 +132,48 @@ namespace BiMS.Gameplay
             get { return LANES_HEIGHT; }
         }
 
+        private int? ControllerInputToLane(ControllerInput input)
+        {
+            switch (input)
+            {
+                case ControllerInput.BT1:
+                    return 1;
+                case ControllerInput.BT2:
+                    return 2;
+                case ControllerInput.BT3:
+                    return 3;
+                case ControllerInput.BT4:
+                    return 4;
+                case ControllerInput.BT5:
+                    return 5;
+                case ControllerInput.BT6:
+                    return 6;
+                case ControllerInput.BT7:
+                    return 7;
+                case ControllerInput.TurntableDown:
+                case ControllerInput.TurntableUp:
+                    return 0;
+            }
+
+            return null;
+        }
+
+        public void OnButtonPressed(ControllerInput input)
+        {
+            int? inputLane = ControllerInputToLane(input);
+            if (inputLane == null) return;
+
+            LaneInputStatus[(int)inputLane] = true;
+        }
+
+        public void OnButtonReleased(ControllerInput input)
+        {
+            int? inputLane = ControllerInputToLane(input);
+            if (inputLane == null) return;
+
+            LaneInputStatus[(int)inputLane] = false;
+        }
+
         public void Render()
         {
             renderer.BeginFrame();
@@ -137,8 +184,14 @@ namespace BiMS.Gameplay
             RenderLanes();
             for (int i = 0; i < 8; i++)
                 RenderNotes(i);
+            RenderCriticalLine();
             renderer.EndFrame();
             isDrawing = false;
+        }
+
+        private (float, float, float) HighlightColor((float, float, float) color)
+        {
+            return (color.Item1 + 30, color.Item2 + 30, color.Item3 + 30);
         }
 
         private void RenderLanes()
@@ -154,7 +207,7 @@ namespace BiMS.Gameplay
 
             for (int i = 0; i < BimsUtil.NUM_LANES; i++)
             {
-                renderer.SetColor(lanes[i].BackgroundColor);
+                renderer.SetColor(LaneInputStatus[i] ? HighlightColor(lanes[i].BackgroundColor) : lanes[i].BackgroundColor);
                 renderer.FillRect(xPos + lanes[i].Rect.Left, yPos, lanes[i].Rect.Width, LANES_HEIGHT);
             }
         }
@@ -174,6 +227,12 @@ namespace BiMS.Gameplay
                 float y = LANES_HEIGHT * playback.GetRelativeDistance(entity.AbsolutePosition);
                 DrawNote(i, LANES_HEIGHT - y);
             }
+        }
+
+        private void RenderCriticalLine()
+        {
+            renderer.SetColor(CRITICAL_LINE_COLOR);
+            renderer.FillRect(xPos, yPos + LANES_HEIGHT, Width, NOTE_HEIGHT);
         }
     }
 }

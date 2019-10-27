@@ -4,10 +4,11 @@ using System.Text;
 using theori;
 using theori.Charting.Playback;
 using BiMS.Charting;
+using BiMS.IO;
 
 namespace BiMS.Gameplay
 {
-    class GameplayLayer : Layer
+    class GameplayLayer : BimsLayer
     {
         private SlidingChartPlayback playback;
         private HighwayView highwayView;
@@ -32,6 +33,9 @@ namespace BiMS.Gameplay
                     highwayView.renderableEntities[entity.Lane].Remove(note);
             };
             playback.Position = 0;
+
+            Controller.Instance().ButtonPressed = OnControllerButtonPressed;
+            Controller.Instance().ButtonReleased = OnControllerButtonReleased;
         }
 
         public override void Update(float delta, float total)
@@ -47,6 +51,16 @@ namespace BiMS.Gameplay
             base.Render();
 
             highwayView.Render();
+        }
+
+        public override void OnControllerButtonPressed(ControllerInput input)
+        {
+            highwayView.OnButtonPressed(input);
+        }
+
+        public override void OnControllerButtonReleased(ControllerInput input)
+        {
+            highwayView.OnButtonReleased(input);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using theori;
 using theori.Platform;
 using BiMS.Gameplay;
+using BiMS.IO;
 
 namespace BiMS
 {
